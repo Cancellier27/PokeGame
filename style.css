@@ -22,6 +22,7 @@ body {
   left: 0;
   opacity: 0;
   pointer-events: none;
+  z-index: 10;
 }
 
 #actionBarContainer {
@@ -56,68 +57,72 @@ body {
   background-color: #ddd;
 }
 
-.attackType {
+.attackTypeContainer {
   width: 33.3%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.enemyInfoContainer {
-    background-color: white;
-    border: 4px black solid;
-    border-radius: 8px;
-    position: absolute;
-    width: 250px;
-    top: 50px;
-    left: 50px;
-    padding: 10px;
+.attackType {
+    font-size: 20px
 }
 
-.ourInfoContainer { 
-    background-color: white;
-    border: 4px black solid;
-    border-radius: 8px;
-    position: absolute;
-    width: 250px;
-    bottom: 190px;
-    right: 50px;
-    padding: 10px;
+.enemyInfoContainer {
+  background-color: white;
+  border: 4px black solid;
+  border-radius: 8px;
+  position: absolute;
+  width: 250px;
+  top: 50px;
+  left: 50px;
+  padding: 10px;
+}
+
+.ourInfoContainer {
+  background-color: white;
+  border: 4px black solid;
+  border-radius: 8px;
+  position: absolute;
+  width: 250px;
+  bottom: 190px;
+  right: 50px;
+  padding: 10px;
 }
 
 .pokeName {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .enemyInfoContainer > div,
 .ourInfoContainer > div {
-    position: relative;
+  position: relative;
 }
 
 .hpBackground {
-    margin-top: 10px;
-    height: 5px;
-    background-color: #ccc;
+  margin-top: 10px;
+  height: 5px;
+  background-color: #ccc;
 }
 
 .enemyHp,
 .ourHp {
-    height: 5px;
-    background-color: green;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+  height: 5px;
+  background-color: green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .dialogueBox {
-    padding: 12px;
-    background-color: white;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: none;
-    cursor: pointer;
+  padding: 12px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  cursor: pointer;
 }

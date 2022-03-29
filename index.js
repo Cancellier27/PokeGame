@@ -138,7 +138,11 @@ const battle = {
 }
 
 function animatePlayer() {
+  document.querySelector("#userInterfaceContainer").style.display =
+  "none"
+
   const animationId = window.requestAnimationFrame(animatePlayer)
+  console.log(animationId)
   background.draw()
 
   boundaries.forEach((boundary) => {
@@ -152,7 +156,7 @@ function animatePlayer() {
 
   let moving = true
   player.animate = false
-  if(battle.initiated) return
+  if (battle.initiated) return
 
   if (
     keys.ArrowUp.pressed ||
@@ -162,49 +166,54 @@ function animatePlayer() {
   ) {
     for (let i = 0; i < battleZones.length; i++) {
       const battleZone = battleZones[i]
-      const overlappingArea = (Math.min(player.position.x + player.width, 
-        battleZone.position.x + battleZone.width) - Math.max(player.position.x, 
-        battleZone.position.x)) * (Math.min(player.position.y + player.height, 
-          battleZone.position.y + battleZone.height) - Math.max(player.position.y, 
-          battleZone.position.y))
+      const overlappingArea =
+        (Math.min(
+          player.position.x + player.width,
+          battleZone.position.x + battleZone.width
+        ) -
+          Math.max(player.position.x, battleZone.position.x)) *
+        (Math.min(
+          player.position.y + player.height,
+          battleZone.position.y + battleZone.height
+        ) -
+          Math.max(player.position.y, battleZone.position.y))
       if (
         rectangleCollisions({
           rectangle1: player,
           rectangle2: battleZone
         }) &&
-        overlappingArea > (player.width * player.height) / 2
-        && Math.random() < 0.01
+        overlappingArea > (player.width * player.height) / 2 &&
+        Math.random() < 0.01
       ) {
-        
         console.log("activate battle")
         window.cancelAnimationFrame(animationId)
-        gsap.to('#battleZoneContainer', {
+        gsap.to("#battleZoneContainer", {
           opacity: 1,
           repeat: 3,
           yoyo: true,
           duration: 0.4,
           onComplete() {
-            gsap.to('#battleZoneContainer', {
+            gsap.to("#battleZoneContainer", {
               opacity: 1,
               duration: 0.4,
               onComplete() {
+                // activate a new animation loop
+                initBattle()
                 animateBattle()
-                gsap.to('#battleZoneContainer', {
+                gsap.to("#battleZoneContainer", {
                   opacity: 0,
+                  duration: 0.4
                 })
               }
             })
-
-            
           }
         })
-        
+
         battle.initiated = true
         break
       }
     }
   }
-
 
   if (keys.ArrowUp.pressed && lastKey === "Up") {
     player.animate = true
@@ -317,7 +326,6 @@ function animatePlayer() {
       })
   }
 }
-
 
 let lastKey = ""
 window.addEventListener("keydown", (e) => {
