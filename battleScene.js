@@ -7,42 +7,14 @@ const battleBackground = new Sprite({
   },
   image: battleBackgroundImage
 })
-const draggleImage = new Image()
-draggleImage.src = "./images/draggleSprite.png"
 
-const draggle = new Sprite({
-  position: {
-    x: 800,
-    y: 100
-  },
-  image: draggleImage,
-  frames: {
-    max: 4,
-    hold: 50
-  },
-  animate: true,
-  isEnemy: true,
-  name: "Draggle"
-})
-
-const embyImage = new Image()
-embyImage.src = "./images/embySprite.png"
-
-const emby = new Sprite({
-  position: {
-    x: 280,
-    y: 325
-  },
-  image: embyImage,
-  frames: {
-    max: 4,
-    hold: 50
-  },
-  animate: true,
-  name: "Emby"
-})
+const draggle = new Monster(monstersData.Draggle)
+const emby = new Monster(monstersData.Emby)
 
 const renderSprites = [draggle, emby]
+const button = document.createElement('button')
+button.innerHTML = 'Fireball'
+document.querySelector('.attackOptions').append(button)
 
 function animateBattle() {
   window.requestAnimationFrame(animateBattle)
