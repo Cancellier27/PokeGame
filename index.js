@@ -367,6 +367,19 @@ function animateBattle() {
 }
 // animatePlayer()
 animateBattle()
+document.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    draggle.attack({
+      attack: {
+        name: 'Tackle',
+        damage: 10,
+        type: 'Normal'
+      },
+      recipient: emby,
+      isEnemy: true
+    })
+  })
+})
 
 let lastKey = ""
 window.addEventListener("keydown", (e) => {
