@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <link rel="stylesheet" href="style.css" />
+
   <head>
     <meta charset="UTF-8" />
     <title>Poke Style Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="gameContainer">
@@ -11,15 +18,15 @@
       <canvas></canvas>
 
       <div id="actionBarContainer">
-          <div class="attackOptions">
-              <button>Attack 1</button>
-              <button>Attack 2</button>
-              <button>Attack 3</button>
-              <button>Attack 4</button>
-          </div>
-          <div class="attackType">
-              <h1>Atack type</h1>
-          </div>
+        <div class="attackOptions">
+          <button>Attack 1</button>
+          <button>Attack 2</button>
+          <button>Attack 3</button>
+          <button>Attack 4</button>
+        </div>
+        <div class="attackType">
+          <h1>Atack type</h1>
+        </div>
       </div>
     </div>
   </body>
@@ -29,6 +36,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
+
   <script src="data/collisions.js"></script>
   <script src="data/battleZones.js"></script>
   <script src="classes.js"></script>
