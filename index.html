@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Poke Style Game</title>
+  </head>
+  <body>
+    <div id="gameContainer">
+      <div id="battleZoneContainer"></div>
+      <canvas></canvas>
+
+      <div id="actionBarContainer">
+          <div class="attackOptions">
+              <button>Attack 1</button>
+              <button>Attack 2</button>
+              <button>Attack 3</button>
+              <button>Attack 4</button>
+          </div>
+          <div class="attackType">
+              <h1>Atack type</h1>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="data/collisions.js"></script>
+  <script src="data/battleZones.js"></script>
+  <script src="classes.js"></script>
+  <script src="index.js"></script>
+</html>
