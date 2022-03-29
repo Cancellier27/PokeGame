@@ -360,25 +360,26 @@ const emby = new Sprite({
   animate: true
 }) 
 
+const renderSprites = [draggle, emby]
+
 function animateBattle() {
   window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
-  draggle.draw()
-  emby.draw()
+  renderSprites.forEach(sprite => {
+    sprite.draw()
+  })
 }
 // animatePlayer()
 animateBattle()
 document.querySelectorAll('button').forEach(btn => {
   btn.addEventListener('click', (e) => {
-    console.log(e.currentTarget.innerHTML)
+    const selectedAttack = e.currentTarget.innerHTML
+    if (selectedAttack === '') return
 
     emby.attack({
-      attack: {
-        name: 'Tackle',
-        damage: 10,
-        type: 'Normal'
-      },
+      attack: attacks[selectedAttack],
       recipient: draggle,
+      renderSprites
     })
   })
 })
