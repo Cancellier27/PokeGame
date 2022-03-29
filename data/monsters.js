@@ -13,7 +13,13 @@ const monstersData = {
     },
     animate: true,
     name: "Emby",
-    attacks: [attacks.Tackle, attacks.Fireball]
+    attacks: [attacks.Tackle, attacks.Fireball],
+    status:{
+      level: 1,
+      expEarned: 20,
+      experience: 0,
+      health: 100 
+    }
   },
   Draggle: {
     position: {
@@ -30,6 +36,12 @@ const monstersData = {
     animate: true,
     isEnemy: true,
     name: "Draggle",
-    attacks: [attacks.Tackle, attacks.Fireball]
+    attacks: [attacks.Tackle, attacks.Fireball],
+    status:{
+      level: 1,
+      expEarned: 50,
+      experience: 0,
+      health: 100 
+    }
   }
 }

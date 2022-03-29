@@ -142,7 +142,7 @@ function animatePlayer() {
   "none"
 
   const animationId = window.requestAnimationFrame(animatePlayer)
-  console.log(animationId)
+
   background.draw()
 
   boundaries.forEach((boundary) => {

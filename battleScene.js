@@ -46,6 +46,9 @@ function initBattle() {
       if (draggle.health <= 0) {
         queue.push(() => {
           draggle.faint()
+          emby.leveling({
+            recipient: draggle
+          })
         })
         queue.push(() => {
           // fade back to black
@@ -115,7 +118,6 @@ function initBattle() {
 
 function animateBattle() {
   battleAnimationId = window.requestAnimationFrame(animateBattle)
-  console.log(battleAnimationId)
   battleBackground.draw()
   renderSprites.forEach((sprite) => {
     sprite.draw()
