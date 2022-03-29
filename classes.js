@@ -67,6 +67,9 @@ class Sprite {
     let healthBar = ".enemyHp"
     if (this.isEnemy) healthBar = ".ourHp"
 
+    let rotation = 1
+    if (this.isEnemy) rotation = -2.2
+
     this.health -= attack.damage
 
     switch (attack.name) {
@@ -84,7 +87,7 @@ class Sprite {
             hold: 10
           },
           animate: true,
-          rotation: 1
+          rotation
         })
 
         renderSprites.splice(1, 0, fireball)
