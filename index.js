@@ -187,6 +187,12 @@ function animatePlayer() {
       ) {
         console.log("activate battle")
         window.cancelAnimationFrame(animationId)
+
+        audio.Map.stop()
+        audio.initBattle.play()
+        audio.battle.play()
+        
+        battle.initiated = true
         gsap.to("#battleZoneContainer", {
           opacity: 1,
           repeat: 3,
@@ -208,8 +214,6 @@ function animatePlayer() {
             })
           }
         })
-
-        battle.initiated = true
         break
       }
     }
@@ -363,5 +367,13 @@ window.addEventListener("keyup", (e) => {
     case "ArrowRight":
       keys.ArrowRight.pressed = false
       break
+  }
+})
+
+let clicked = false
+addEventListener('click', () => {
+  if (!clicked){
+    audio.Map.play()
+    clicked = true
   }
 })

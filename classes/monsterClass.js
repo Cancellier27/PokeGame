@@ -38,6 +38,8 @@ class Monster extends Sprite {
       gsap.to(this, {
         opacity: 0
       })
+      audio.battle.stop()
+      audio.victory.play()
     }
 
     leveling({recipient}) {
@@ -71,6 +73,7 @@ class Monster extends Sprite {
   
       switch (attack.name) {
         case "Fireball":
+          audio.initFireball.play()
           const fireballImage = new Image()
           fireballImage.src = "./images/fireball.png"
           const fireball = new Sprite({
@@ -94,6 +97,7 @@ class Monster extends Sprite {
             y: recipient.position.y,
             duration: 0.7,
             onComplete: () => {
+              audio.fireballHit.play()
               gsap.to(healthBar, {
                 width: recipient.health + "%"
               })
@@ -127,6 +131,7 @@ class Monster extends Sprite {
               x: this.position.x + movementDistance * 2,
               duration: 0.1,
               onComplete: () => {
+                audio.tackleHit.play()
                 gsap.to(healthBar, {
                   width: recipient.health + "%"
                 })
